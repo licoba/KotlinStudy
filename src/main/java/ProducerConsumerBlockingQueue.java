@@ -9,7 +9,7 @@ public class ProducerConsumerBlockingQueue {
         for (int i = 1; i <= MAX; i++) {
             try {
                 blockingQueue.put(i);
-                System.out.println("生产者生产了 "+i);
+                System.out.println("生产者生产了 " + i);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -18,10 +18,9 @@ public class ProducerConsumerBlockingQueue {
 
     Thread consumer = new Thread(() -> {
         for (int i = 1; i <= MAX; i++) {
-            int value = 0;
             try {
-                value = blockingQueue.take();
-                System.out.println("消费者消费了 "+value);
+                int value = blockingQueue.take();
+                System.out.println("消费者消费了 " + value);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
